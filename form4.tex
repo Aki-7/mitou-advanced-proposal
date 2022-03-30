@@ -6,25 +6,20 @@
 \usepackage{titlesec}
 \usepackage[top=2cm, bottom=2cm, left=1.5cm, right=1.5cm]{geometry}
 
+\bibliographystyle{plain}
+
 \begin{document}
 
 \begin{flushright}
   【様式4】
 \end{flushright}
-テーマ名： ``ZIGEN： 3D Windowing System'' \\
-申請者名： 木内 陽大、江口 大志
+テーマ名： ``ZIGEN： XR Windowing System'' \\
+% textlint-disable
+申請者名： 木内 陽大，江口 大志
+% textlint-enable
+% TODO: And more?
 
-
-\section{プロジェクトの背景，目的，目標}
-
-% 提案の背景、目的、目標を、開発と事業化（または社会課題の解決に寄与するような社会実装）の
-% 両面について、その分野の専門家でない人にもわかるように丁寧に記述してください。
-% また、競合する事業等が存在する場合には、その概要及び競合との差別化要因になるものについて、
-% 記載してください。
-
-% 提案の背景(なぜ)、目的(なにを)、目標(どこまで)を、
-% 開発と事業化(または社会課題の解決に寄与するような社会実装)の両面で記載
-% 競合する事業等が存在する場合には、その概要及び競合との差別化要因
+\input{src/project.tex}
 
 \section{開発に関する未踏性の主張，期待される効果}
 
@@ -69,5 +64,7 @@
 
 % ・本提案で開発した製品・サービスによる、事業期間終了後の人員計画、経費計画、売上計画
 % （または社会実装での実用化計画）などを記述してください。
+
+\bibliography{form4.bib}
 
 \end{document}

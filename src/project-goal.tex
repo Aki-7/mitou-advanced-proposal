@@ -1,4 +1,62 @@
-\subsection{目標}
+\subsection{目標（開発面）}
 
-\ref*{section:objective}での3つの目的に対して，本プロジェクトの未踏アドバンストでの
-目標を開発面と社会へのサービス提供の面の両面から述べる．
+\ref*{section:objective}での3つの目的に対して，本プロジェクトの未踏アドバンストにおける
+開発面での目標を述べる．
+
+\subsubsection*{実用レベルのXRデスクトップ環境を提供する．}
+
+\begin{itemize}
+  \item 2DアプリケーションのX11対応．\\
+        現状のzmonitors（\ref{section:current-status}の3. を参照）では % TODO: 3. に変わりないかCheck
+        Waylandプロトコルにのみ対応している．つまり現状ZIGENではWayland対応の
+        2Dアプリケーションしか動作しない．WaylandはUbuntu 21.04からはX11に変わって
+        標準のWindowing Systemとなるなど，X11より新しいWindowing Systemであると
+        % textlint-disable
+        言えるが，現状多くのLinuxのGUIアプリケーションはX11でのみ動作し，それらの
+        % textlint-enable
+        アプリケーションが使えなければ実生活での作業空間としてZIGENを利用することは厳しい．
+        % TODO: Check 単にXWaylandに対応するだけの話であることを言えてるか
+
+  \item 3D デスクトップ環境の充実．\\
+        実用的な2D デスクトップ環境ではWIMPのパラダイムのもとアイコンのクリックによって
+        アプリケーションを実行するといった機能が存在する．またショートカットキーによる
+        アプリケーション一覧の表示や，フォーカスの切り替えなどは
+        正確にはWindowing Systemとしては必須の機能ではないが，実用的なデスクトップ環境には
+        求められる機能である．
+  \item 2D Windowing Systemとの親和性を高める．
+\end{itemize}
+
+\subsubsection*{ユーザと開発者からなるエコシステムを形成する．}
+
+\begin{itemize}
+  \item ゲームエンジンによって3Dアプリケーションを作成できるようにする．
+  \item ストアへ出品，またストアからインストールして使えるようにする．(want)
+\end{itemize}
+
+\subsubsection*{多くのユーザに使ってもらう}
+
+\begin{itemize}
+  \item より広いHMDへの対応
+  \item 既存のXRアプリケーションと一緒に使えるようにオーバーレイとして実装する．
+\end{itemize}
+
+\subsection{目標（社会へのサービス提供の面）}
+
+社会へのサービス提供の観点では特に\textgt{"ユーザと開発者からなるエコシステムを形成する"}
+と\textgt{"多くのユーザに使ってもらう"}の目的に対して取り組む．
+% TODO: またサービスの継続的な開発のための事業化（収益化）の観点を入れる．
+
+\subsubsection{ユーザと開発者からなるエコシステムを形成する．}
+
+\begin{itemize}
+  \item 開発者ドキュメントを整備する．
+  \item Discord などによるコミュニティーを広げる． % アプリケーションの数 / DiscordでのInquiry数
+\end{itemize}
+
+\subsubsection{多くのユーザに使ってもらう}
+
+\begin{itemize}
+  \item イベントなどの登壇を通してプレセンスを高める．% discord や Twitter のFollower
+\end{itemize}
+
+% TODO: 収益化に関するetc

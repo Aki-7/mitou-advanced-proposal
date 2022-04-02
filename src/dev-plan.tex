@@ -2,16 +2,104 @@
 
 \subsection{現状の開発状況}
 
+説明の順番の都合上\ref{section:current-status}で説明したので，そちらを参照されたい．
+
 \subsection{事業期間中の開発内容}
 \label{section:dev-plan-detail}
 
+\ref{section:dev-goal} で述べた開発目標に対する実装方針を簡単に述べる．
+
+\begin{itemize}
+  \item X11の2Dアプリケーションに対応する．\\
+        X11のプロトコルをWaylandのプロトコルに変換するXWaylandというソフトウェアがあり，
+        これをzmonitorsと同時に起動してあげることで，X11のディスプレイサーバを作成したり
+        せずに達成できる．実際にXWaylandを用いてX11のアプリケーションのピクセルマップを，
+        自作したWaylandコンポジッタから取得できることを確認している．
+
+  \item XRデスクトップ環境としての機能を充実する．\\
+        まずはアプリケーションラウンチャーなどの基本的で簡単な機能から実装する．
+        ここはプロジェクトの進捗を鑑みて完成度を高めてゆく．
+
+  \item 2D Windowing Systemとの親和性を高める．\\
+        % textlint-disable
+        GNOMEやKwinといった既存の2Dデスクトップ環境を拡張する形で実装できれば良いが，
+        % textlint-enable
+        それはかなり難易度が高いと予想されている．今までの開発から2Dのディスプレイサーバを
+        作るほうが慣れているので，GNOMEやKwinの拡張が難しければ，バックアッププランとして，
+        ZIGEN用の2D Windowing Systemを開発する．
+
+  \item ゲームエンジンでZIGENの3Dアプリケーションを作成できるようにする．\\
+        % textlint-disable
+        Unityは開発者は多いがソースコードが公開されておらず，
+        % textlint-enable
+        拡張できる部分から考えてもUnityを用いてZIGENの3Dアプリケーションを作成するのは
+        不可能である可能性が高い．Unreal Engineはソースコードが公開されているが，
+        ライセンスを見る限り，開発成果をプラグインとして配布できるが，ソースコードを書き換えて
+        再配布は不可能である．プラグインとして配布できるかは検討するが実現可能性は高くない．
+        % textlint-disable
+        Godot
+        \footnote{Godot Engine - Free and open source 2D and 3D game engine: https://godotengine.org/}
+        はMIT Licenseの完全にオープンソースのゲームエンジンで，開発者は少ないが，
+        % textlint-enable
+        3Dゲームエンジンとして注目されており，2021年の12月にはメタ社から助成金も出ている．
+        Godotはソースコードを簡単みる限り，3Dオブジェクトをどう描画するかの部分が
+        分離されており，その部分を書き換えることでZIGENのアプリケーションが作れる
+        ようになる可能性がかなり高く，これをバックアッププランとする．
+
+  \item ZIGENのアプリケーションのストアを展開する．\\
+        こちらはプロジェクトの進捗が良かった場合のプラスアルファであり，
+        事業期間中には行わない可能性もあり，バッファとする．
+
+  \item より多くのHMDへの対応．\\
+        ユーザが圧倒的に多いOculus Quest2への対応をまず行う．
+        未踏IT人材発掘・育成事業終了後の進捗として，
+        ALVR\footnote{ALVR - PC VR Without the Wires: https://alvr-org.github.io/}
+        と組み合わせてワイヤレスでOculus Quest2を用いてZIGENを実行できているが，
+        解像度が悪い．有線での通信や通信情報の最適化，レンダリングの一部をOculus Quest2側で
+        行うなどの施策を考えている．
+
+  \item 既存のXRアプリケーションと一緒に使えるようにオーバレイとして実装する．\\
+        これはOpenVRのOverlay機能を使って表示するようにすれば良いだけなので，
+        比較的実装が容易である．ただし現状はOpenVRを用いて開発しているが，
+        最新の規格であるOpenXRを用いることも検討している．
+\end{itemize}
+
 \subsection{開発体制}
+
+開発者5人で作業を分担する．各々の役割分担は以下の通り定めるが，
+開発優先度に合わせて柔軟に対応する．\\
+木内："2D Windowing Systemとの親和性を高める"，"より多くのHMDへの対応"の部分と全体設計．\\
+江口："X11の2Dアプリケーション対応"とその他Windowing Systemの品質向上．\\
+伴："XRデスクトップ環境としての機能充実"の部分．各種デザイン．\\
+劉："ゲームエンジンでZIGENの3Dアプリケーションを作成できるようにする"の部分．\\
+渡辺："既存のXRアプリケーションと一緒に使えるようにオーバーレイとして実装する"の部分．
 
 \subsection{開発者スキル}
 
+各々の開発経験は以下の通り，\\
+木内：\\
+江口：\\
+伴：\\
+劉：\\
+渡辺： TODO．
+
 \subsection{開発線表}
 
+図\ref{fig:schedule}に示した．
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[keepaspectratio, width=\linewidth]{fig/schedule.png}
+  \caption{開発線表．黒塗りの時期が取り組む時期．}
+  \label{fig:schedule}
+\end{figure}
+
 \subsection{克服すべき課題とその解決策}
+
+特に"2D Windowing Systemとの親和性を高める"と
+"ゲームエンジンでZIGENの3Dアプリケーションを作成できるようにする"という開発目標は
+かなり難易度が高いが，述べたとおりそれぞれバックアッププランを用意している．
+その他にも基本的に段階的な開発目標立てることで開発が手詰まりになる可能性を下げている．
 
 % ・計画の緻密さを確認するため、以下の項目を記述してください。
 % - 現状のプロトタイプ（あれば）

@@ -1,9 +1,9 @@
 \subsection{目標（開発面）}
 \label{section:dev-goal}
 
-\ref*{section:objective}での3つの目的に対して，本プロジェクトの未踏アドバンストにおける
-開発面での目標を述べる．具体的な実装方針などについては\ref{section:dev-plan-detail}
-で述べる．
+\ref*{section:objective}の目的のうち開発に関連するものに対して，
+本プロジェクトの未踏アドバンストにおける開発面での目標を述べる．
+具体的な実装方針などについては\ref{section:dev-plan-detail}で述べる．
 
 \subsubsection*{実用レベルのXRデスクトップ環境を提供する．}
 
@@ -36,7 +36,7 @@
         またXRデスクトップ環境から通常の2Dデスクトップ環境に戻ってこれるようにするべきである．
 \end{itemize}
 
-\subsubsection*{ユーザと開発者からなるエコシステムを形成する．}
+\subsubsection*{ユーザと3Dアプリケーション開発者からなるエコシステムを形成する．}
 
 \begin{itemize}
   \item ゲームエンジンでZIGENの3Dアプリケーションを作成できるようにする．\\
@@ -52,7 +52,7 @@
         継続的な開発のための収益化にもつながりうるため，視野にいれている．
 \end{itemize}
 
-\subsubsection*{多くのユーザに使ってもらう}
+\subsubsection*{多くのユーザに使ってもらう．}
 
 \begin{itemize}
   \item より多くのHMDへの対応\\
@@ -68,23 +68,76 @@
         とりながら，よりよい個人の作業空間を展開するなどといったことができるようになる．
 \end{itemize}
 
-\subsection{目標（社会へのサービス提供の面）}
+\subsection{目標（社会実装面）}
 
-社会へのサービス提供の観点では特に\textgt{"ユーザと開発者からなるエコシステムを形成する"}
-と\textgt{"多くのユーザに使ってもらう"}の目的に対して取り組む．
-% TODO: またサービスの継続的な開発のための事業化（収益化）の観点を入れる．
+\ref{section:objective}の目的のうち社会実装に関連するものに対して，
+本プロジェクトの未踏アドバンストにおける社会実装面での目標を述べる．
+% 具体的な施策に関しては\ref{section:biz-plan-detail}で述べる．
 
-\subsubsection{ユーザと開発者からなるエコシステムを形成する．}
+ここで事業性の面で本プロジェクトが主に目指すところは，収益化ではなく，
+現状のXRにおける課題を解決し，作業空間としてのXRのあるべき世界を指し示し，
+社会にインストールすることである．ただし，プロジェクトの継続的な発展や開発母体の安定性のために，
+収益化の方法を模索することは必要であると思っており，未踏アドバンスト事業期間中にそのための
+検証などを行なっていくつもりである．
+
+\subsubsection*{ユーザと3Dアプリケーション開発者からなるエコシステムを形成する．}
+
+% \item 開発者ドキュメントを整備する．
+まずは開発や利用に関して気軽に質問などができるコミュニティを目指し，
+Discordなどのコミュニティツールの整備や，その広報をおこなっていく．
+ターゲットユーザの近い類似プロジェクトの現状を鑑みて以下の目標数値を定める．
 
 \begin{itemize}
-  \item 開発者ドキュメントを整備する．
-  \item Discord などによるコミュニティーを広げる． % アプリケーションの数 / DiscordでのInquiry数
+  \item Discordユーザ：300人 （現状36人）
+  \item 外部からのIssue/PullRequest：5つ
 \end{itemize}
 
-\subsubsection{多くのユーザに使ってもらう}
+また，外部の開発者に実際にアプリケーションを作ってもらい試してもらうためのハッカソンを
+開催する．
+
+\subsubsection*{多くのユーザに使ってもらう．}
+
+幅広い知識レベルのユーザが利用できるようにインストラクションドキュメントを提供すると共に，
+カンファレンスやイベント，メディアへの露出や，ブログによる情報発信を通して認知度の向上を図る．
+
+\subsubsection*{XR世界を作り上げているコミュニティでのプレゼンスを高める．}
+
+OSSとしてのコミュニティの完成度を高めるため．
+GitHubが提供しているOSSプロジェクトのガイドライン
+\footnote{オープンソースガイドライン：https://opensource.guide/ja/}
+を実践する．
+また，先に述べたカンファレンスやイベントなどの登壇もプレゼンスの向上に寄与すると考える．
+
+\subsubsection*{事業の継続のための収益化について．}
+
+開発継続のための金銭を受け取る方法はいくつか模索している．
 
 \begin{itemize}
-  \item イベントなどの登壇を通してプレセンスを高める．% discord や Twitter のFollower
+  \item 助成金やクラウドファウンディングなどで金銭を得る\\
+        OSS向けのFoundationは多く存在するが，その中でも特に
+        XR Foundation\footnote{XR Foundation：https://www.xrfoundation.io/}や，
+        Open 3D Foundation\footnote{Open 3D Foundation：https://o3d.foundation/}
+        などのXR向けのFoundationに絞って申請を検討する．また，Webpack\footnote{Webpack：https://webpack.js.org/}などはOpenCollective
+        \footnote{webpack - OpenCollective https://opencollective.com/webpack}
+        を通じて企業や個人から資金を得ていたり，Kickstarterのキャンペーンを通じてDjangoの
+        スキーママイグレーションの活動資金を得ているプロジェクト
+        \footnote{https://www.kickstarter.com/projects/andrewgodwin/schema-migrations-for-django}
+        なども存在する．
+  \item ビジネスとして展開する．\\
+        ZIGENにおいてビジネス展開を考える場合はHMDやLinux PCを持っている人の絶対数が
+        多くはないためそこが難しい．そのため，ZIGENをセットアップした状態のハードウェア
+        含めたXR作業環境一式，またはその一部（HMDとWindowing Systemのみなど）
+        を法人向けに提供することを考えている．昨今はクラウドサービスが増え，
+        Google SheetのようにOSに依存せず，ブラウザさえあれば仕事が完結する場合も
+        多くなってきており，Linuxのデスクトップ環境でも十分に仕事が可能になってきている．
+        とくにエンジニア向けにエンジニアを抱える法人に対してアプローチしていきたい．
 \end{itemize}
+
+未踏アドバンスト事業期間での目標は，助成金またはクラウドファンディングなどにはいずれか1つ以上
+申請し，ビジネス展開については普段から仕事でLinuxを使っている開発者，そうでない開発者，
+非開発者などの属性それぞれに対して，ZIGENでの作業環境に移行する可能性があるか
+% textlint-disable
+ユーザインタビューを行い検証していきたい．
+% textlint-enable
 
 % TODO: 収益化に関するetc

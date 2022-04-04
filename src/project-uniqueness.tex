@@ -3,7 +3,8 @@
 
 \subsubsection{xrdesktop / wxrd}
 
-xrdesktopはLinuxの2Dデスクトップ環境をXR空間から操作することを実現するプロジェクトである
+xrdesktop\footnote{xrdesktop/xrdesktop - Freedesktop GitLab：\url{https://gitlab.freedesktop.org/xrdesktop/xrdesktop}}
+はLinuxの2Dデスクトップ環境をXR空間から操作することを実現するプロジェクトである
 （図\ref{fig:xrdesktop}）．Google が主催する OSS 人材育成プロジェクトである
 Google Summer of CodeにもOSSプロジェクト側で出るほど信頼度の高いOSSプロジェクトである．
 既存の2Dアプリケーションが動作する点はZIGENと同じだが，
@@ -11,17 +12,19 @@ Google Summer of CodeにもOSSプロジェクト側で出るほど信頼度の�
 また，GNOMEやKwinといった既存のデスクトップ環境のウィンドウのミラーを表示するという
 実装であるため，ウィンドウのリサイズや移動などを通常の2Dデスクトップ環境と同じように
 行うことはできていない．ZIGENが始動した時期と同時期の2021年7月から
-同じ開発者が"wxrd"という同様の機能をWaylandコンポジッタを用いて提供するプロジェクトを
+同じ開発者がwxrd\footnote{xrdesktop/wxrd - Freedesktop GitLab：\url{https://gitlab.freedesktop.org/xrdesktop/wxrd}}
+という同様の機能をWaylandコンポジッタを用いて提供するプロジェクトを
 試験的に始めており，これはZIGENが2Dアプリケーションを表示している仕組みと近い設計で，
 HMDのリフレッシュレートに合わせられていなかった問題などを解消できるとしている
-（ZIGENは実現できている）．xrdesktop以外にもLinuxに限らず2Dのデスクトップ環境を表示する
+（ZIGENはすでに実現している）．xrdesktop以外にもLinuxに限らず2Dのデスクトップ環境を表示する
 機能であれば，商業的にも数多く存在する．しかしいずれにせよ複数の3Dアプリケーションを立ち上げる
 環境はない．
 
 \subsubsection{OpenXR Overlay}
 \label{section:openxr-overlay}
 
-OpenXRとは，ベンダに依存しない統一的なXRプラットフォームやデバイスのインタフェースを提供する
+OpenXR\footnote{OpenXR：https://www.khronos.org/openxr/}
+とは，ベンダに依存しない統一的なXRプラットフォームやデバイスのインタフェースを提供する
 もので，Khronos グループによって策定されており，XRプラットフォーム・デバイス標準化の
 デファクトスタンダードになりつつある．
 OpenXRの定義の中にはOverlayという仕組みがあり，メインのアプリケーションの上に重ねて
@@ -34,7 +37,8 @@ OpenXRの定義の中にはOverlayという仕組みがあり，メインのア�
 存在しない．そのため，Overlayのアプリケーションを複数起動して，それらを連携して使うような
 使い方には至っていない．
 
-しかしZIGENでは入力の割り振りやデータ共有の仕組みがあるため，マルチアプリケーション・
+しかしZIGENでは単にアプリケーションを重ねるだけでなく，Windowing Systemとして
+入力の割り振りやデータ共有の仕組みなどがあるため，マルチアプリケーション・
 マルチタスクの環境を提供できる．
 
 \subsubsection{
